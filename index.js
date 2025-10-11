@@ -1,3 +1,7 @@
+// a palavra "Import" importa as classes de outros arquivos
+import {Cliente} from './Cliente.js';
+import {ContaCorrente} from './ContaCorrente.js';
+
 // cria um novo cliente
 const cliente1 = new Cliente();
 cliente1.nome = 'Ricardo';
@@ -9,5 +13,10 @@ cliente2.cpf = 8882223309;
 
 const contaCorrenteRicardo = new ContaCorrente();
 contaCorrenteRicardo.agencia = 1001;
+contaCorrenteRicardo.cliente = cliente1
 
-console.log(contaCorrenteRicardo);
+const conta2 = new ContaCorrente();
+conta2.cliente = cliente2;
+conta2.agencia = 1002;
+
+console.log(conta2);

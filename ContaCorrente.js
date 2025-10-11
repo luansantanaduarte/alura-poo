@@ -1,6 +1,10 @@
 // a divisão de classes em arquivos separados é uma boa prática de organização.
-class ContaCorrente {
+
+// a palavra export faz com que a classe, mesmo em um arquivo diferente, pode ser usado pelo index.
+export class ContaCorrente {
     agencia;
+    cliente;
+
     // atributo privado -> só pode ser acessado dentro da própria classe
     _saldo = 0;
 
@@ -17,5 +21,10 @@ class ContaCorrente {
     depositar(valor) {
         if (valor <= 0) return;
         this._saldo += valor;
+    }
+
+    transferir(valor, conta) {
+        const valorSacado = this.sacar(valor);
+        conta.depositar(valorSacado);
     }
 }
