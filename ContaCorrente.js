@@ -1,12 +1,28 @@
 // a divisão de classes em arquivos separados é uma boa prática de organização.
 
+import { Cliente } from "./Cliente";
+
 // a palavra export faz com que a classe, mesmo em um arquivo diferente, pode ser usado pelo index.
 export class ContaCorrente {
     agencia;
-    cliente;
+    _cliente;
+
+    set cliente(novoValor) {
+        if (novoValor instanceof Cliente) {
+            this._cliente = novoValor;
+        }
+    }
+
+    get cliente() {
+        return this._cliente
+    }
 
     // atributo privado -> só pode ser acessado dentro da própria classe
     _saldo = 0;
+
+    get saldo() {
+        return this._saldo
+    }
 
     // método -> função que pertence a uma classe
     sacar(valor) {
