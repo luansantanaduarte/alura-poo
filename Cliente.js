@@ -5,5 +5,15 @@
 // a palavra export faz com que a classe, mesmo em um arquivo diferente, pode ser usado pelo index.
 export class Cliente {
     nome;
-    cpf;
+    _cpf;
+
+    get cpf() {
+        return this._cpf;
+    }
+
+    // cria um construtor
+    constructor(nome, cpf) {
+        this.nome = nome;
+        this._cpf = cpf
+    } 
 } 

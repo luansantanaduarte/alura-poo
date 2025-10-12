@@ -1,27 +1,37 @@
 // a divisão de classes em arquivos separados é uma boa prática de organização.
 
-import { Cliente } from "./Cliente";
+import { Cliente } from "./Cliente.js";
 
 // a palavra export faz com que a classe, mesmo em um arquivo diferente, pode ser usado pelo index.
 export class ContaCorrente {
+    // cria um atributo estático
+    static numeroDeContas = 0;
     agencia;
     _cliente;
 
+    // assessor set -> método que é chamado toda vez que um novo valor for atribuído ao cliente. serve para fazer verificações de atribuição.
     set cliente(novoValor) {
         if (novoValor instanceof Cliente) {
             this._cliente = novoValor;
         }
     }
 
+    // assesor get -> é chamado toda vez que o valor for mostrado, oferecendo verificações. para além disso, um get escrito sem um set impossibilita quaisquer atribuições posteriores.
     get cliente() {
         return this._cliente
     }
 
-    // atributo privado -> só pode ser acessado dentro da própria classe
+    // atributo privado -> só pode ser acessado dentro da própria classe.
     _saldo = 0;
 
     get saldo() {
         return this._saldo
+    }
+
+    constructor(cliente, agencia) {
+        this.agencia = agencia;
+        this.cliente = cliente
+        ContaCorrente.numeroDeContas += 1;
     }
 
     // método -> função que pertence a uma classe
