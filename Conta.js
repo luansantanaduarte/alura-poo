@@ -16,11 +16,17 @@ export class Conta {
 
   sacar(valor) {
     let taxa = 1
+    return this._sacar(valor, taxa)
+  }
+
+  _sacar(valor, taxa) {
     const valorSacado = taxa * valor;
     if (this._saldo >= valorSacado) {
       this._saldo -= valorSacado;
       return valorSacado;
     }
+
+    return 0;
   }
 
   depositar(valor) {
@@ -32,4 +38,6 @@ export class Conta {
     const valorSacado = this.sacar(valor);
     conta.depositar(valorSacado);
   }
+
+  // Quando dois metódos são escritos, o último sobrescreve o primeiro, de maneira que com a palavra reservada "super" faz com que o metódo da classe mãe seja chamado.
 }

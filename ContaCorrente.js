@@ -1,8 +1,4 @@
 // a divisão de classes em arquivos separados é uma boa prática de organização.
-
-import {
-  Cliente
-} from "./Cliente.js";
 import {
   Conta
 } from "./Conta.js";
@@ -11,12 +7,20 @@ import {
 export class ContaCorrente extends Conta {
   // Herança: Capacidade de uma classe herdar atributos e metódos de outra.
   constructor(cliente, agencia) {
-    super(0, cliente, agencia)
+    super(0, cliente, agencia);
+    // o super é responsável por fazer referência ao construtor da classe mãe.
     ContaCorrente.numeroDeContas += 1;
     // this.agencia = agencia;
     // this.cliente = cliente;
     //   // atributo privado -> só pode ser acessado dentro da própria classe.
     //   this._saldo = 0;
+  }
+
+  // declaração de um sacar com taxa especial para conta corrente.
+  sacar(valor) {
+    let taxa = 1.1;
+    // maneira de reutilizar código chamando o método da classe mãe.
+    return this._sacar(valor, taxa);
   }
   // // cria um atributo estático
   // static numeroDeContas = 0;
