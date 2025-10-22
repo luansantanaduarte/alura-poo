@@ -1,20 +1,11 @@
 // a palavra "Import" importa as classes de outros arquivos
 import { Cliente } from './Conta/Cliente.js';
-import { ContaCorrente } from './Conta/ContaCorrente.js';
-import { ContaPoupança } from './Conta/ContaPoupança.js';
+import { Gerente } from './Funcionarios/Gerente.js';
+import { Diretor } from './Funcionarios/Diretor.js';
+import { SistemaAutenticacao } from './SistemaAutenticacao.js';
 
-// cria um novo cliente
-const cliente1 = new Cliente('Ricardo', 11122233309)
+const diretor = new Diretor("Rodrigo", 10000, "12345678900");
+const gerente = new Gerente("Ricardo", 5000, 123456788901);
 
-const contaCorrenteRicardo = new ContaCorrente(0, cliente1, 1001);
+const estaLogado = SistemaAutenticacao.login(diretor, "123456789");
 
-contaCorrenteRicardo.depositar(500);
-contaCorrenteRicardo.sacar(100);
-
-const ContaPoupanca = new ContaPoupança(50, cliente1, 1001);
-
-const contaSalario = new ContaSalario(cliente1);
-contaSalario.depositar(100);
-contaSalario.sacar(10);
-
-console.log(contaSalario);
