@@ -1,7 +1,7 @@
 // a palavra "Import" importa as classes de outros arquivos
-import { Cliente } from './Cliente.js';
-import { ContaCorrente } from './ContaCorrente.js';
-import { ContaPoupança } from './ContaPoupança.js';
+import { Cliente } from './Conta/Cliente.js';
+import { ContaCorrente } from './Conta/ContaCorrente.js';
+import { ContaPoupança } from './Conta/ContaPoupança.js';
 
 // cria um novo cliente
 const cliente1 = new Cliente('Ricardo', 11122233309)
