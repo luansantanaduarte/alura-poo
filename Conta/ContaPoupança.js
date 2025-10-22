@@ -9,4 +9,8 @@ export class ContaPoupança extends Conta {
     // this._cliente = cliente;
     // this._agencia = agencia;
   }
+  sacar() {
+    const taxa = 1.02;
+    return this._sacar(valor, taxa);
+  }
 }
